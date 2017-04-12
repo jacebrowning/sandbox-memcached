@@ -4,3 +4,8 @@ verify_ssl = true
 
 [packages]
 pymemcache = "~=1.4.3"
+
+[dev-packages]
+pytest = "*"
+pytest-expecter = "*"
+pytest-describe = "*"

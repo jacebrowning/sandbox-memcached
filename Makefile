@@ -3,7 +3,7 @@ all: install
 
 .PHONY: run
 run: install
-	pipenv run python main.py
+	pipenv run python sandbox.py
 
 # SYSTEM DEPENDENCIES ##########################################################
 
@@ -38,6 +38,12 @@ $(DEPENDENCIES): $(PIP) Pipfile*
 
 $(PIP):
 	pipenv --python=python3.6
+
+# VALIDATION ###################################################################
+
+.PHONY: test
+test: install
+	pipenv run py.test
 
 # CLEANUP ######################################################################
 

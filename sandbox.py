@@ -1,7 +1,7 @@
 from pymemcache.client.base import Client
 
 
-def run():
+def main():
     client = Client(('localhost', 11211))
 
     client.set('foobar', 'Hello, world!')
@@ -14,4 +14,4 @@ def run():
 
 
 if __name__ == '__main__':
-    run()
+    main()

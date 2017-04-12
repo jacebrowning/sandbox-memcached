@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3c3e0c92e5053fff0e83d327dd8f74b0619a9c32fc0ca08c1cc0a789da255094"
+            "sha256": "5e272c103beebce7338e25d54de3125eac550c48ab4fc3ea4efd3afcdc11bfd3"
         },
         "requires": {},
         "sources": [
@@ -21,5 +21,42 @@
             "version": "==1.10.0"
         }
     },
-    "develop": {}
+    "develop": {
+        "appdirs": {
+            "hash": "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e",
+            "version": "==1.4.3"
+        },
+        "packaging": {
+            "hash": "sha256:99276dc6e3a7851f32027a68f1095cd3f77c148091b092ea867a351811cfe388",
+            "version": "==16.8"
+        },
+        "py": {
+            "hash": "sha256:81b5e37db3cc1052de438375605fb5d3b3e97f950f415f9143f04697c684d7eb",
+            "version": "==1.4.33"
+        },
+        "pyparsing": {
+            "hash": "sha256:fee43f17a9c4087e7ed1605bd6df994c6173c1e977d7ade7b651292fab2bd010",
+            "version": "==2.2.0"
+        },
+        "pytest": {
+            "hash": "sha256:66f332ae62593b874a648b10a8cb106bfdacd2c6288ed7dec3713c3a808a6017",
+            "version": "==3.0.7"
+        },
+        "pytest-describe": {
+            "hash": "sha256:c592f1294e4455cebe88f162a1475e347c0668ce256c4d1a4ccd21d6c5f51827",
+            "version": "==0.11.0"
+        },
+        "pytest-expecter": {
+            "hash": "sha256:9c6ed4d26df0e80a31b2c6ad86a959593f0c5b2459ea366496c45d9bbd9d358a",
+            "version": "==0.2.2.post3"
+        },
+        "setuptools": {
+            "hash": "sha256:1f7aac8b778446406ec5dcd5cc9305b375e7935e38f2fd3b1b70168c21a079d0",
+            "version": "==34.4.1"
+        },
+        "six": {
+            "hash": "sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1",
+            "version": "==1.10.0"
+        }
+    }
 }
