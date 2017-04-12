@@ -9,7 +9,7 @@ run: install bigoldfile.dat
 	cat bigoldfile.dat.out | md5sum
 
 bigoldfile.dat:
-	d if=/dev/urandom of=$@ bs=1048576 count=250
+	dd if=/dev/urandom of=$@ bs=1048576 count=250
 
 # SYSTEM DEPENDENCIES ##########################################################
 

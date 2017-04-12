@@ -34,14 +34,24 @@ def run(inname, outname):
 
 def set_file(name, data):
     """Store a file in memcache by its name."""
-    for index, chunk in get_chucks(data):
+    count = 0
+    for index, chunk in get_chunks(data):
         key = get_key(name, index)
         log.info("Set %s = %s", key, len(chunk))
         client.set(key, chunk)
+        count += 1
+
+    key = get_key(name, 'count')
+    client.set(key, count)
+    log.info("Set expected count: %s", count)
 
 
 def get_file(name):
     """Retrieve a file from memcache by its name."""
+    key = get_key(name, 'count')
+    expected_count = int(client.get(key))
+    log.info("Get expected count: %s", expected_count)
+
     data = b''
     index = 0
     while True:
@@ -54,12 +64,15 @@ def get_file(name):
         data += chunk
         index += 1
 
+    log.info("Get count: %s", index)
+    assert index == expected_count
+
     return data
 
 
-def get_chucks(data, max_bytes=1_000_000):
+def get_chunks(data, max_bytes=1_000_000):
     for index in range(0, len(data), max_bytes):
-        yield index // max_bytes , data[index:index + max_bytes]
+        yield index // max_bytes, data[index:index + max_bytes]
 
 
 def get_key(name, index):
