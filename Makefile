@@ -2,8 +2,14 @@
 all: install
 
 .PHONY: run
-run: install
-	pipenv run python sandbox.py
+run: install bigoldfile.dat
+	rm -f bigoldfile.dat.out
+	cat bigoldfile.dat | md5sum
+	pipenv run python sandbox.py bigoldfile.dat bigoldfile.dat.out
+	cat bigoldfile.dat.out | md5sum
+
+bigoldfile.dat:
+	d if=/dev/urandom of=$@ bs=1048576 count=250
 
 # SYSTEM DEPENDENCIES ##########################################################
 
