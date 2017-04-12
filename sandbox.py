@@ -3,6 +3,7 @@ from pathlib import Path
 import logging
 
 from pymemcache.client.base import Client
+from pymemcache.client.murmur3 import murmur3_32
 
 
 client = Client(('localhost', 11211))
@@ -25,8 +26,6 @@ def run(inname, outname):
     set_file(inname, indata)
 
     outdata = get_file(inname)
-
-    outdata = indata
 
     outpath = Path(outname)
     with outpath.open('wb') as f:
@@ -60,11 +59,12 @@ def get_file(name):
 
 def get_chucks(data, max_bytes=1_000_000):
     for index in range(0, len(data), max_bytes):
-        yield index, data[index:index + max_bytes]
+        yield index // max_bytes , data[index:index + max_bytes]
 
 
 def get_key(name, index):
-    return f"{name}-{index}"
+    encoded = murmur3_32(name)
+    return f"{encoded}-{index}"
 
 
 if __name__ == '__main__':
