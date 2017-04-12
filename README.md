@@ -2,6 +2,8 @@
 
 https://gist.github.com/jsherer/d5238b3b1dd9c1287f32
 
+https://gist.github.com/jsherer/d9bf1c10feb7d6590fd3
+
 ## Memcached
 
 https://github.com/memcached/memcached/wiki/Commands
